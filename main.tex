@@ -1,7 +1,8 @@
 \documentclass[10pt, a4paper]{article}
 
 % --- Packages ---
-\usepackage[margin=0.75in, top=1in]{geometry} % Adjust margins
+% \usepackage[margin=0.75in, top=1in]{geometry} % Adjust margins
+\usepackage[margin=1in]{geometry}
 \usepackage{graphicx}       % For the logo
 \usepackage{xcolor}         % For colors
 \usepackage{multicol}       % For two-column layout
@@ -35,7 +36,8 @@
   {} % Before code
 
 \titlespacing*{\section}{0pt}{10pt}{5pt}
-
+% This defines "C" as a Centered version of the "X" column
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 % Remove paragraph indentation
 \setlength{\parindent}{0pt}
 
@@ -182,23 +184,33 @@ Prepared by: Bao TON
 \renewcommand{\arraystretch}{1.2}
 \begin{table}[ht]
     \centering
-    \caption{Table Fitted to Column Width}
-    % \columnwidth fits it to the text width (or column width in 2-col papers)
-    % The '!' tells LaTeX to calculate the height automatically to maintain aspect ratio
-    \scalebox{0.8}{
-        \begin{tabularx}{\textwidth}{l|l|X|c|c c c|c|c c c|c|c}
-        \hline
-     & & & & \multicolumn{3}{c|}{$\mathbf{T_A = 25^\circ C}$} & \textbf{SUB-} & \multicolumn{3}{c|}{$\mathbf{-55^\circ C \le T_A \le 125^\circ C}$} & \textbf{SUB-} & \\
-        \textbf{SYMBOL} & \textbf{PARAMETER} & \textbf{CONDITIONS} & \textbf{NOTES} & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & \textbf{GROUP} & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & \textbf{GROUP} & \textbf{UNITS} \\
-        \hline
-    $V_{OS}$ & Input Offset & $V_S = 5\text{V}, 0\text{V}; V_{CM} = V^-\text{ to }V^+$ & & & 0.6 & 2 & 1 & & & 4 & 2,3 & mV \\
-             & Voltage      & $V_S = \pm5\text{V}; V_{CM} = V^-\text{ to }V^+$ & & & 2.5 & 6 & 1 & & & 9 & 2,3 & mV \\
-         \hline
-    $I_B$    & Input Bias Current & $V_S = 5\text{V}, 0\text{V}; V_{CM} = V^+$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
-             &                    & $V_S = 5\text{V}, 0\text{V}; V_{CM} = V^-$ & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
-        \hline
-\end{tabularx}
+    % Resizebox ensures the table fits the page regardless of column widths
+    \resizebox{\textwidth}{!}{%
+    
+        % Note: I changed 'C' to 'm{3.5cm}' in the line below
+        \begin{tabularx}{1.55\textwidth}{l|l|m{3.5cm}|c|ccc|c|ccc|c|c}
+            \hline
+            \multirow{2}{*}{\textbf{SYMBOL}} & 
+            \multirow{2}{*}{\textbf{PARAMETER}} & 
+            \multirow{2}{*}{\centering \textbf{CONDITIONS}} & % Added \centering here manually
+            \multirow{2}{*}{\textbf{NOTES}} & 
+            \multicolumn{3}{c|}{$\mathbf{T_A = 25^\circ C}$} & 
+            \multirow{2}{*}{\parbox{1.5cm}{\centering \textbf{SUB-}\\ \textbf{GROUP}}} & 
+            \multicolumn{3}{c|}{$\mathbf{-55^\circ C \le T_A \le 125^\circ C}$} & 
+            \multirow{2}{*}{\parbox{1.5cm}{\centering \textbf{SUB-}\\ \textbf{GROUP}}} & 
+            \multirow{2}{*}{\textbf{UNITS}} \\
+            
+            \cline{5-7} \cline{9-11}
+             & & & & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & & \\
+            \hline
+            
+            $V_{OS}$ & Input Offset & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 0.6 & 2 & 1 & & & 4 & 2,3 & mV \\
+                     & Voltage      & \centering $V_{CM} = V^-\text{ to }V^+$ & & & 2.5 & 6 & 1 & & & 9 & 2,3 & mV \\
+            \hline
+            $I_B$    & Input Bias   & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
+                     & Current      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
+            \hline
+        \end{tabularx}%
     }
 \end{table}
-
 \end{document}
