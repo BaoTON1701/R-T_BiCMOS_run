@@ -17,6 +17,7 @@
 \usepackage{multirow}       % For merging table cells
 \usepackage{tabularx}       % For flexible tables
 \usepackage{amsmath}        % For math symbols like \pm
+\usepackage{caption}        % Required for \captionof
 
 
 % --- Custom Colors ---
@@ -70,6 +71,7 @@
 \setlength{\headheight}{25pt}
 %
 
+
 \begin{document}
 
 % ==========================================
@@ -99,30 +101,23 @@ Prepared by: Bao TON
 
     % --- DESCRIPTION ---
     \section*{Description}
-    The RH6200 is an ultralow noise, rail-to-rail input and output unity-gain stable op amp that features $0.95\text{nV}/\sqrt{\text{Hz}}$ noise voltage. This amplifier combines very low noise with a 165MHz gain bandwidth, 50V/$\mu$s slew rate and is optimized for low voltage signal conditioning systems. A shutdown pin reduces supply current during standby conditions and thermal shutdown protects the part from overload conditions. The RH6200 maintains its pre-irradiation performance for supplies from 4.5V to 12.6V and is specified pre- and post-radiation at 5V and $\pm$5V.
+This ASIC, fabricated using IHP technology, integrates three distinct circuits designed for cryogenic operation ($77\,\text{K}$). It features two low-noise differential amplifiers: a fully integrated version with on-chip resistors and a flexible version utilizing external resistors. Both amplifiers deliver an ultralow noise floor of $1\,\text{nV}/\sqrt{\text{Hz}}$ and are optimized for promising low flicker noise at cryogenic temperatures. The bandwidth is specified at $25\,\text{MHz}$ for the on-chip variant and $50\,\text{MHz}$ for the external resistor configuration. Additionally, a large-geometry NMOS transistor ($W/L \approx 190,000$) is included for discrete characterization.
 
     % --- ABSOLUTE MAXIMUM RATINGS ---
     \section*{Absolute Maximum Ratings}
-    \textbf{(Note 1)}
+    
     
     \begin{tabbing}
         \hspace{6cm} \= \kill
-        Total Supply Voltage ($\text{V}^+$ to $\text{V}^-$) \> 12.6V \\
+        Total Supply Voltage ($\text{V}^+$ to $\text{V}^-$) \> 5.15V \\
         \dotfill \\
         Input Current (Note 2) \> $\pm$40mA \\
         \dotfill \\
-        Output Short-Circuit Duration (Note 3) \> Indefinite \\
-        \dotfill \\
-        Pin Current While Exceeding Supplies (Note 4) \> $\pm$30mA \\
-        \dotfill \\
         Operating Junction Temperature Range \\
-        \hspace{0.5cm} (Note 5) \> $-55^\circ$C to $125^\circ$C \\
-        \dotfill \\
-        Storage Temperature Range \> $-65^\circ$C to $150^\circ$C \\
-        \dotfill \\
-        Lead Temperature (Soldering, 10 sec) \> $300^\circ$C \\
+        \hspace{0.5cm} (Note 5) \> $-40^\circ$C to $125^\circ$C \\
+       
     \end{tabbing}
-    {\tiny All registered trademarks and trademarks are the property of their respective owners.}
+  
 
 \end{multicols}
 
@@ -133,77 +128,71 @@ Prepared by: Bao TON
 \begin{multicols}{2}
 
     % --- BURN-IN CIRCUIT ---
-    \section*{Burn-In Circuit}
+    \section*{Block diagram}
     \vspace{0.5cm}
     \begin{center}
     \begin{circuitikz}[scale=0.8, transform shape]
-        % Opamp
-        \draw (2,2) node[op amp] (opamp) {};
-        
-        % Resistors and inputs
-        \draw (opamp.-) -- ++(-0.5,0) coordinate(neg_in);
-        \draw (neg_in) -- ++(0, 1.5) to[R, l=10k, name=R1] ++(2.5,0) -| (opamp.out);
-        \draw (neg_in) to[R, l=200$\Omega$] ++(-1.5,0) node[ground] {};
-        
-        \draw (opamp.+) -- ++(-0.5,0) to[R, l=10k] ++(-1.5,0) node[ground] {};
-        
-        % Power rails
-        \draw (opamp.up) -- ++(0,0.5) node[above] {6.3V};
-        \draw (opamp.down) -- ++(0,-0.5) node[below] {-6.3V};
-        
-        % Pin Numbers (Manual placement)
-        \node[font=\tiny] at (opamp.bin 1) [above left] {3};
-        \node[font=\tiny] at (opamp.bin 2) [below left] {4};
-        \node[font=\tiny] at (opamp.bout) [above right] {7};
-        \node[font=\tiny] at (opamp.up) [right] {8};
-        \node[font=\tiny] at (opamp.down) [right] {5};
-        
-        \node[font=\tiny] at (2,-1.5) {RH6200M F01};
+        % Paths, nodes and wires:
+	\node[fd op amp, yscale=-1] at (2.44, 28.99){};
+	\node[nmosd, xscale=-1] at (10.047, 29){};
+	\draw (2, 29.75) -- (2, 31.25);
+	\draw (2, 28.25) -- (2, 28);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (0.687, 29.72){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (0.125, 29.96){$V_{in1+}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (0.687, 28.74){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (0.125, 28.98){$V_{in1-}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (2.1, 31.69){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (1.537, 31.93){$V_{cc}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (2.187, 26.76){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (1.625, 27){$V_{ee}$ };
+	\draw (2, 28) to[american resistor, /tikz/circuitikz/bipoles/length=0.700cm, l={$R_{ptat1}$}] (2, 27.25);
+	\draw (2, 27.25) -| (2, 27);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.425cm] at (3.835, 29.71){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (3.273, 29.94){$V_{out1-}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (3.835, 28.74){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (3.273, 28.98){$V_{out1+}$ };
+	\draw (6.5, 31.25) -- (7, 31.25);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (11.859, 29.01){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (11.297, 29.25){$G_{NMOS}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (9.859, 30.49){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (9.297, 30.73){$D_{NMOS}$ };
+	\node[fd op amp, yscale=-1] at (7.19, 28.97){};
+	\draw (6.5, 29.862) -- (6.5, 30);
+	\draw (6.75, 28.23) -- (6.75, 27.98);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (5.437, 29.7){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (4.875, 29.94){$V_{in2+}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (5.437, 28.72){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (4.875, 28.96){$V_{in2-}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (6.862, 31.69){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (6.3, 31.93){$V_{cc}$ };
+	\draw (6.75, 27.98) to[american resistor, /tikz/circuitikz/bipoles/length=0.700cm, l={$R_{ptat2}$}] (6.75, 27.23);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.425cm] at (8.585, 29.69){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (8.023, 29.92){$V_{out2-}$ };
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (8.585, 28.72){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (8.023, 28.96){$V_{out2+}$ };
+	\draw (6.5, 31) -- (7, 31);
+	\draw (10.047, 28.23) -| (10.047, 26.98);
+	\draw (6.75, 27.23) -- (6.75, 27);
+	\draw (1.75, 27) -- (2.25, 27);
+	\draw (6.5, 27) -- (7, 27);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (6.938, 26.74){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (6.375, 26.98){$V_{ee}$ };
+	\draw (9.797, 27) -- (10.297, 27);
+	\node[shape=rectangle, minimum width=1.09cm, minimum height=0.445cm] at (10.234, 26.75){} node[anchor=north west, align=left, text width=0.702cm, inner sep=6pt] at (9.672, 26.99){$V_{ee}$ };
+	\node[shape=rectangle, minimum width=1.465cm, minimum height=0.465cm] at (2, 25.5){} node[anchor=north west, align=left, text width=1.077cm, inner sep=6pt] at (1.25, 25.75){LNA 1};
+	\node[shape=rectangle, minimum width=1.465cm, minimum height=0.465cm] at (6.75, 25.5){} node[anchor=north west, align=left, text width=1.077cm, inner sep=6pt] at (6, 25.75){LNA 2};
+	\node[shape=rectangle, minimum width=2.465cm, minimum height=0.465cm] at (10.297, 25.5){} node[anchor=north west, align=left, text width=2.077cm, inner sep=6pt] at (9.047, 25.75){NMOS Block};
+	\draw (7, 29.575) -- (7, 30);
+	\draw (6.5, 30.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.700cm, l_={$R_{L+}$}] (6.5, 30);
+	\draw (7, 30.75) to[american resistor, /tikz/circuitikz/bipoles/length=0.700cm, l={$R_{L-}$}] (7, 30);
+	\draw (6.5, 30.75) -| (6.5, 31) -- (7, 31) -| (7, 30.75);
+	\draw (6.75, 31.25) -| (6.75, 31);
+	\draw (1.75, 31.25) -- (2.25, 31.25);
+	\node[ocirc] at (10.047, 30){};
+	\node[ocirc] at (11.347, 29){};
+	\draw (10.047, 29.701) -- (10.047, 29.951);
+	\draw (11.027, 29) -- (11.297, 29);
     \end{circuitikz}
     \end{center}
 
     % --- PACKAGE INFO ---
-    \section*{Package/Order Information}
+    \section*{Package}
+
     
-    \begin{tabular}{|c|c|}
-        \hline
-        \begin{tabular}{c}
-             \textbf{ORDER PART} \\
-             \textbf{NUMBER} \\
-             \hline
-             RH6200MW \\
-        \end{tabular} 
-        & 
-        \begin{minipage}{0.25\textwidth}
-            \centering
-            \tiny TOP VIEW
-            \vspace{5pt}
-            \begin{tikzpicture}[scale=0.6]
-                % Chip Body
-                \draw[thick] (0,0) rectangle (2,2.5);
-                % Pins Left
-                \foreach \y/\lab in {2.2/SHDN 1, 1.8/NC 2, 1.4/-IN 3, 1.0/+IN 4, 0.6/V$^-$ 5} {
-                    \draw (0,\y) -- (-0.3,\y); 
-                    \draw (-0.3,\y-0.1) rectangle (0,\y+0.1);
-                    \node[anchor=east, font=\tiny] at (-0.3,\y) {\lab};
-                }
-                % Pins Right
-                \foreach \y/\lab in {2.2/10 NC, 1.8/9 NC, 1.4/8 V$^+$, 1.0/7 OUT, 0.6/6 NC} {
-                    \draw (2,\y) -- (2.3,\y);
-                    \draw (2,\y-0.1) rectangle (2.3,\y+0.1);
-                    \node[anchor=west, font=\tiny] at (2.3,\y) {\lab};
-                }
-                % Triangle inside
-                \draw (0.5, 0.8) -- (0.5, 1.8) -- (1.5, 1.3) -- cycle;
-                \node at (0.7, 1.1) {\tiny +};
-                \node at (0.7, 1.5) {\tiny -};
-            \end{tikzpicture}
-            \\
-            \tiny W PACKAGE\\
-            \tiny 10-LEAD CERPAC
-        \end{minipage}
-        \\ \hline
-    \end{tabular}
+    \begin{center} % Use center instead of figure
+        % \linewidth refers to the width of the specific COLUMN, not the page
+        \includegraphics[width=0.8\linewidth]{image/packaging/BondingRTrun2.PNG}
+        
+        % Use \captionof{figure}{...} instead of \caption{...}
+        \captionof*{figure}{Bonding diagram with QFN24 package} 
+        \label{fig:placeholder}
+    \end{center}
 
 \end{multicols}
 \vspace{5pt}
@@ -220,7 +209,7 @@ Prepared by: Bao TON
         \begin{tabularx}{1.55\textwidth}{l|l|m{3.5cm}|c|ccc|c|ccc|c|c}
             \hline
             \multirow{2}{*}{\textbf{SYMBOL}} & 
-            \multirow{2}{*}{\textbf{PARAMETER}} & 
+            \multirow{2}{*}{\parbox{4cm}{\centering \textbf{PARAMETER}}} & 
             \multirow{2}{*}{\centering \textbf{CONDITIONS}} & % Added \centering here manually
             \multirow{2}{*}{\textbf{NOTES}} & 
             \multicolumn{3}{c|}{$\mathbf{T_A = 25^\circ C}$} & 
