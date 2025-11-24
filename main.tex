@@ -16,6 +16,7 @@
 \usepackage{tabularx}       % For flexible tables
 \usepackage{amsmath}        % For math symbols like \pm
 
+
 % --- Custom Colors ---
 % Approximating the "Analog Devices" red/maroon
 \definecolor{headerred}{RGB}{160, 20, 30}
@@ -174,6 +175,30 @@ Prepared by: Bao TON
     \end{tabular}
 
 \end{multicols}
-
+\vspace{5pt}
+{\color{headerred}\hrule height 2pt}
+\vspace{10pt}
+\section*{TABLE 1: ELECTRICAL CHARACTERISTICS}
+\renewcommand{\arraystretch}{1.2}
+\begin{table}[ht]
+    \centering
+    \caption{Table Fitted to Column Width}
+    % \columnwidth fits it to the text width (or column width in 2-col papers)
+    % The '!' tells LaTeX to calculate the height automatically to maintain aspect ratio
+    \scalebox{0.8}{
+        \begin{tabularx}{\textwidth}{l|l|X|c|c c c|c|c c c|c|c}
+        \hline
+     & & & & \multicolumn{3}{c|}{$\mathbf{T_A = 25^\circ C}$} & \textbf{SUB-} & \multicolumn{3}{c|}{$\mathbf{-55^\circ C \le T_A \le 125^\circ C}$} & \textbf{SUB-} & \\
+        \textbf{SYMBOL} & \textbf{PARAMETER} & \textbf{CONDITIONS} & \textbf{NOTES} & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & \textbf{GROUP} & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & \textbf{GROUP} & \textbf{UNITS} \\
+        \hline
+    $V_{OS}$ & Input Offset & $V_S = 5\text{V}, 0\text{V}; V_{CM} = V^-\text{ to }V^+$ & & & 0.6 & 2 & 1 & & & 4 & 2,3 & mV \\
+             & Voltage      & $V_S = \pm5\text{V}; V_{CM} = V^-\text{ to }V^+$ & & & 2.5 & 6 & 1 & & & 9 & 2,3 & mV \\
+         \hline
+    $I_B$    & Input Bias Current & $V_S = 5\text{V}, 0\text{V}; V_{CM} = V^+$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
+             &                    & $V_S = 5\text{V}, 0\text{V}; V_{CM} = V^-$ & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
+        \hline
+\end{tabularx}
+    }
+\end{table}
 
 \end{document}
