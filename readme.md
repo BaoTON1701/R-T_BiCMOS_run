@@ -47,7 +47,7 @@ Die size (Length in µm x Wide in µm):   1264 μm × 913 μm
 ## Packaging 
 For packaging this ASIC, we are going to use the QFN24 
 <div align="center">
-  <img src="image/packaging/BondingR&TRun2.PNG" width="300" />
+  <img src="image/packaging/BondingR&TRun2.png" width="300" />
 </div>
 
 
