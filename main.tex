@@ -2,7 +2,8 @@
 
 % --- Packages ---
 % \usepackage[margin=0.75in, top=1in]{geometry} % Adjust margins
-\usepackage[margin=1in]{geometry}
+% Tight margins for a datasheet look
+\usepackage[left=0.75in, right=0.75in, top=0.5in, bottom=0.75in]{geometry}
 \usepackage{graphicx}       % For the logo
 \usepackage{xcolor}         % For colors
 \usepackage{multicol}       % For two-column layout
@@ -41,6 +42,34 @@
 % Remove paragraph indentation
 \setlength{\parindent}{0pt}
 
+%
+% --- Header & Footer Setup ---
+\usepackage{fancyhdr}
+\pagestyle{fancy} % Turn on the fancy style
+\fancyhf{} % Clear all default headers and footers
+
+% 1. Define the thick colored Header Line
+\renewcommand{\headrule}{%
+    {\color{headerred}\hrule height 2pt}%
+    \vspace{2pt} % Add a little space between line and body text
+}
+
+% 2. Define the thick colored Footer Line
+\renewcommand{\footrule}{%
+    \vspace{2pt} % Add a little space between body text and line
+    {\color{headerred}\hrule height 2pt}%
+}
+
+% 3. Set the text content (Optional)
+\fancyhead[L]{\small \textbf{R\&T BiCMOS}}    % Top Left
+\fancyhead[R]{\small \textbf{B.TON - APC}} % Top Right
+\fancyfoot[C]{\thepage}                   % Bottom Center (Page Number)
+
+% --- Fix for head height warning ---
+% Because the line is 7pt thick, you might need to increase headheight
+\setlength{\headheight}{25pt}
+%
+
 \begin{document}
 
 % ==========================================
@@ -59,7 +88,7 @@
 \end{minipage}
 
 \vspace{5pt}
-{\color{headerred}\hrule height 3pt}
+{\color{headerred}\hrule height 7pt}
 \vspace{10pt}
 Prepared by: Bao TON
 
