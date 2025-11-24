@@ -7,6 +7,8 @@
 Description: The development of this circuit is part of a broader R&D effort. With this specific LNA design, we aimed to optimize the performance of a low-noise amplifier intended for cryogenic operation (77 K). The optimization focused on reducing both white and flicker noise, mainly by adjusting the transistor dimensions and bias current. A low-frequency noise level down to $1 nV/ \sqrt{Hz}$ at frequencies as low as 1 Hz is targeted.
 At the same time, the amplifier must cover a bandwidth greater than 10 MHz, provide a voltage gain of approximately 100 V/V, and feature both DC-coupled input and output stages. The thermal drift of the gain is also addressed by using a proportional-to-temperature current source ($ I_C \propto$ T) to compensate for the intrinsic inverse temperature dependence of the voltage gain ($\propto g_m=qIc/kT$).
 
+ [A Data sheet view](main.pdf) 
+
 ## Schematic 
 
 ### Block diagram 
@@ -28,7 +30,11 @@ Technology: IHP130 SG13S
 
 Die size (Length in µm x Wide in µm):   1264 μm × 913 μm 
 ## Data sheet 
-
+The test's result bases on two approach:
+* The comparison between the two LNA 
+  * First LNA utilises on-chip resistor (huge central brown block and smaller block below).
+  * Second LNA use the external resistor that will include later with the PCB design.
+* The characteristic of the large NMOS 
 ### 1. Gain 
 
 <table>
