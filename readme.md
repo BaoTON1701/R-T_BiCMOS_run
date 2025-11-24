@@ -5,7 +5,7 @@
 </div>
 
 Description: The development of this circuit is part of a broader R&D effort. With this specific LNA design, we aimed to optimize the performance of a low-noise amplifier intended for cryogenic operation (77 K). The optimization focused on reducing both white and flicker noise, mainly by adjusting the transistor dimensions and bias current. A low-frequency noise level down to $1 nV/ \sqrt{Hz}$ at frequencies as low as 1 Hz is targeted.
-At the same time, the amplifier must cover a bandwidth greater than 10 MHz, provide a voltage gain of approximately 100 V/V, and feature both DC-coupled input and output stages. The thermal drift of the gain is also addressed by using a proportional-to-temperature current source ($ I_C \propto$ T) to compensate for the intrinsic inverse temperature dependence of the voltage gain ($\propto g_m=qIc/kT$).
+At the same time, the amplifier must cover a bandwidth greater than 20 MHz, provide a voltage gain of approximately 30 V/V, and feature both DC-coupled input and output stages. The thermal drift of the gain is also addressed by using a proportional-to-temperature current source ($ I_C \propto$ T) to compensate for the intrinsic inverse temperature dependence of the voltage gain ($\propto g_m=qIc/kT$).
 
  [A Data sheet view](main.pdf) 
 
@@ -53,7 +53,7 @@ The test's result bases on two approach:
 ## Packaging 
 For packaging this ASIC, we are going to use the QFN24 
 <div align="center">
-  <img src="image/packaging/BondingR&TRun2.png" width="300" />
+  <img src="image/packaging/BondingRTRun2.png" width="300" />
 </div>
 
 
