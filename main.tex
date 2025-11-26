@@ -80,8 +80,8 @@
 \begin{minipage}[b]{0.4\textwidth}
     % Placeholder for Logo. Replace example-image with your logo file.
     \includegraphics[width=1.5cm]{image/logo/RetT_black.PNG} \\
-    {\fontfamily{phv}\selectfont\bfseries\Huge\hspace{3pt} \scalebox{1.0}{R\&T BiCMOS}}
-\end{minipage}%
+    {\fontfamily{phv}\selectfont\bfseries\Huge\hspace{3pt} \scalebox{1.0}{R\&T BiCMOS run2}}
+\end{minipage}
 \hfill
 \begin{minipage}[b]{0.55\textwidth}
     \raggedleft
@@ -90,7 +90,7 @@
 \end{minipage}
 
 \vspace{5pt}
-{\color{headerred}\hrule height 7pt}
+{\color{headerred}\hrule height 2pt}
 \vspace{10pt}
 Prepared by: Bao TON
 
@@ -228,6 +228,11 @@ This ASIC, fabricated using IHP technology, integrates three distinct circuits d
             $I_B$    & Input Bias   & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
                      & Current      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
             \hline
+                & Input Noise   & \centering $0.1~Hz$ to $10~Hz$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
+                     & Voltage      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $nV_{p-p}$ \\
+            \hline
+            SR    & Slew Rate   & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
+                     & Current      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
         \end{tabularx}%
     }
 \end{table}
