@@ -47,7 +47,7 @@ The test's result bases on two approach:
 ### 2. Input referred Noise
 
 <div align="left">
-  <img src="image/plot/Input_Referred_Noise.png" width="400" />
+  <img src="image/plot/Input_Referred_Noise.png" width="600" />
 </div>
 
 LNA 1: Temperature Comparison ($27^\circ\text{C}$ vs $45^\circ\text{C}$)
@@ -102,6 +102,11 @@ Calculated results for ```rise time``` and ```slew rate```
   </tr>
 </table>
 
+With the histogram represent distribution of slew rate at $27^{\circ}C$ and $45^{\circ}C$
+
+<div align="left">
+  <img src="image/plot/Hist_slew_rate.png" width="600" />
+</div>
 
 
 

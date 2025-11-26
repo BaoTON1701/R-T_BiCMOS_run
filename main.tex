@@ -222,17 +222,17 @@ This ASIC, fabricated using IHP technology, integrates three distinct circuits d
              & & & & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & & \textbf{MIN} & \textbf{TYP} & \textbf{MAX} & & \\
             \hline
             
-            $V_{OS}$ & Input Offset & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 0.6 & 2 & 1 & & & 4 & 2,3 & mV \\
+            $V_{OS}$ & Input Offset & \centering $V_S = \pm 1.65\text{V}$ & & & 0.6 & 2 & 1 & & & 4 & 2,3 & mV \\
                      & Voltage      & \centering $V_{CM} = V^-\text{ to }V^+$ & & & 2.5 & 6 & 1 & & & 9 & 2,3 & mV \\
             \hline
-            $I_B$    & Input Bias   & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
+            $I_B$    & Input Bias   & \centering $V_S = \pm 1.65\text{V}$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
                      & Current      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
             \hline
                 & Input Noise   & \centering $0.1~Hz$ to $10~Hz$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
                      & Voltage      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $nV_{p-p}$ \\
             \hline
-            SR    & Slew Rate   & \centering $V_S = 5\text{V}, 0\text{V};$ & & & 8 & 18 & 1 & & & 20 & 2,3 & $\mu$A \\
-                     & Current      & \centering $V_{CM} = V^+$               & & -50 & -23 & & 1 & -100 & & & 2,3 & $\mu$A \\
+            SR    & Slew Rate   & \centering $V_{in} \pm 1.25~m\text{V}$ | LNA1 & & 28 & 30 & 31 & 1 & 28 & 30 & 32 & 2,3 & $V/\mu s$ \\
+                     &       & \centering $V_{in} \pm 1.25~m\text{V}$ | LNA2 (tbu \footnote{to be updated})               & & -50 & -23 & & 1 & -100 & & & 2,3 & $/\mu s $ \\
         \end{tabularx}%
     }
 \end{table}
