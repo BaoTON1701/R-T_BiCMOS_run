@@ -46,9 +46,65 @@ The test's result bases on two approach:
 
 ### 2. Input referred Noise
 
-<div align="center">
+<div align="left">
   <img src="image/plot/Input_Referred_Noise.png" width="400" />
 </div>
+
+LNA 1: Temperature Comparison ($27^\circ\text{C}$ vs $45^\circ\text{C}$)
+
+| Frequency | Vcm | Avg ($27^\circ\text{C}$) | Avg ($45^\circ\text{C}$) | Range ($27^\circ\text{C}$) | Range ($45^\circ\text{C}$) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **1 Hz** | -0.5V | 11.07 | 12.35 | 4.12 - 26.90 | 6.28 - 28.18 |
+| | 0.0V | 11.09 | 12.37 | 4.16 - 26.96 | 6.28 - 28.24 |
+| | 0.5V | 11.11 | 12.39 | 4.20 - 27.01 | 6.29 - 28.28 |
+| **10 kHz** | -0.5V | 1.09 | 1.12 | 1.06 - 1.11 | 1.09 - 1.15 |
+| | 0.0V | 1.08 | 1.12 | 1.06 - 1.11 | 1.09 - 1.14 |
+| | 0.5V | 1.08 | 1.11 | 1.06 - 1.11 | 1.09 - 1.14 |
+| **100 kHz** | -0.5V | 1.08 | 1.12 | 1.06 - 1.11 | 1.09 - 1.14 |
+| | 0.0V | 1.08 | 1.11 | 1.06 - 1.11 | 1.09 - 1.14 |
+| | 0.5V | 1.08 | 1.11 | 1.05 - 1.11 | 1.09 - 1.14 |
+
+***
+
+LNA 2: Temperature Comparison ($27^\circ\text{C}$ vs $45^\circ\text{C}$)
+
+| Frequency | Vcm | Avg ($27^\circ\text{C}$) | Avg ($45^\circ\text{C}$) | Range ($27^\circ\text{C}$) | Range ($45^\circ\text{C}$) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **1 Hz** | -0.5V | 11.29 | 12.23 | 4.24 - 25.37 | 5.11 - 26.58 |
+| | 0.0V | 11.31 | 12.26 | 4.24 - 25.43 | 5.11 - 26.64 |
+| | 0.5V | 11.33 | 12.28 | 4.25 - 25.48 | 5.12 - 26.69 |
+| **10 kHz** | -0.5V | 1.09 | 1.12 | 1.07 - 1.10 | 1.10 - 1.14 |
+| | 0.0V | 1.08 | 1.11 | 1.06 - 1.10 | 1.10 - 1.13 |
+| | 0.5V | 1.08 | 1.11 | 1.06 - 1.10 | 1.09 - 1.13 |
+| **100 kHz** | -0.5V | 1.08 | 1.12 | 1.07 - 1.10 | 1.10 - 1.13 |
+| | 0.0V | 1.08 | 1.11 | 1.06 - 1.10 | 1.09 - 1.13 |
+| | 0.5V | 1.08 | 1.11 | 1.06 - 1.10 | 1.09 - 1.13 |
+
+*Note: All noise values are in nV.*
+
+### 3. Signal Response 
+
+Simulation done by using a ```Vpulse``` with $t_{delay} = 0.5 \mu s$, $period = 2 \mu s$ and $PW = 1 \mu s$ at the input of the amplifier
+
+<table>
+  <tr>
+    <td> <img src="image/plot/Output_Response_27degC.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/Slew_rate_estimate.png" alt="2" width = 400px ></td>
+  </tr>
+</table>
+
+Calculated results for ```rise time``` and ```slew rate```
+
+<table>
+  <tr>
+    <td> <img src="image/plot/Slew_rate.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/Rise_time.png" alt="2" width = 400px ></td>
+  </tr>
+</table>
+
+
+
+
 
 ## Packaging 
 For packaging this ASIC, we are going to use the QFN24 
