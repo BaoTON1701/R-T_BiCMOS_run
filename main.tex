@@ -18,7 +18,7 @@
 \usepackage{tabularx}       % For flexible tables
 \usepackage{amsmath}        % For math symbols like \pm
 \usepackage{caption}        % Required for \captionof
-
+\usepackage{todonotes}
 
 % --- Custom Colors ---
 % Approximating the "Analog Devices" red/maroon
@@ -236,5 +236,28 @@ This ASIC, fabricated using IHP technology, integrates three distinct circuits d
         \end{tabularx}%
     }
 \end{table}
+\newpage
 \section*{TYPICAL PERFORMANCE CHARACTERISTICS}
+\begin{multicols}{2}
+\begin{center}
+        \includegraphics[width=\linewidth]{image/plot/Output_Response_27degC.png} 
+        \label{fig:response_example}
+    \end{center}
+
+\begin{center} 
+        \includegraphics[width=\linewidth]{image/plot/Slew_rate.png}
+        \label{fig:Slew_rate}
+    \end{center}
+
+\begin{center} 
+        \includegraphics[width=\linewidth]{image/plot/Slew_rate_estimate.png}
+        \label{fig:response_estimation}
+    \end{center}
+
+\begin{center} 
+        \includegraphics[width=\linewidth]{image/plot/Hist_slew_rate.png}
+        \label{fig:Hist_Slew_rate}
+    \end{center}
+\end{multicols}
+\todo[inline]{maybe add title for those top figures}
 \end{document}
