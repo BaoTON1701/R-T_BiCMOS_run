@@ -117,6 +117,23 @@ With the histogram represent distribution of slew rate at $27^{\circ}C$ and $45^
 </table>
 
 Plot shows a huge rejection ratio at $27^{\circ}~C$ 
+### 5. Power Supply Rejection Ratio 
+
+Here we show the PSRR of VCC and VEE source for LNA1 and LNA2 
+
+<table>
+  <tr>
+    <td> <img src="image/plot/PSRR_LNA1_VCC.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/PSRR_LNA1_VCC.png" alt="2" width = 400px ></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td> <img src="image/plot/PSRR_LNA2_VCC.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/PSRR_LNA2_VCC.png" alt="2" width = 400px ></td>
+  </tr>
+</table>
 
 
 ## Packaging 
