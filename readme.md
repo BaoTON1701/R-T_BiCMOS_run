@@ -111,29 +111,23 @@ With the histogram represent distribution of slew rate at $27^{\circ}C$ and $45^
 ### 4. Common-mode Rejection Ratio (CMRR)
 <table>
   <tr>
-    <td> <img src="image/plot/CMRR_LNA1.png"  alt="1" width = 400px ></td>
-    <td> <img src="image/plot/CMRR_LNA2.png" alt="2" width = 400px ></td>
+    <td> <img src="image/plot/CMRR_vs_f.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/CMRR_vs_T.png" alt="2" width = 400px ></td>
   </tr>
 </table>
 
-Plot shows a huge rejection ratio at $27^{\circ}~C$ 
+
 ### 5. Power Supply Rejection Ratio 
 
 Here we show the PSRR of VCC and VEE source for LNA1 and LNA2 
 
 <table>
   <tr>
-    <td> <img src="image/plot/PSRR_LNA1_VCC.png"  alt="1" width = 400px ></td>
-    <td> <img src="image/plot/PSRR_LNA1_VCC.png" alt="2" width = 400px ></td>
+    <td> <img src="image/plot/PSRR_LNA1.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/PSRR_LNA2.png" alt="2" width = 400px ></td>
   </tr>
 </table>
 
-<table>
-  <tr>
-    <td> <img src="image/plot/PSRR_LNA2_VCC.png"  alt="1" width = 400px ></td>
-    <td> <img src="image/plot/PSRR_LNA2_VCC.png" alt="2" width = 400px ></td>
-  </tr>
-</table>
 
 
 ## Packaging 
