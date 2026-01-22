@@ -20,7 +20,7 @@
 \usepackage{caption}        % Required for \captionof
 \usepackage{float}          % For [H] placement specifier
 \usepackage{todonotes}
-
+\usepackage{siunitx}
 % --- Custom Colors ---
 % Approximating the "Analog Devices" red/maroon
 \definecolor{headerred}{RGB}{160, 20, 30}
@@ -278,29 +278,29 @@ This ASIC, fabricated using IHP technology, integrates three distinct circuits d
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{image/plot/CMRR_vs_f.png}
-        \captionof{figure}{MC shows the CMRR of the two LNAs vs Frequency from 1Hz to 100MHz at $27^\circ C$}
+        \captionof{figure}{CMRR of LNA1/LNA2 vs Frequency (\qtyrange{1}{100}{\MHz}) at \qty{27}{\celsius}}
     \end{figure}  
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{image/plot/CMRR_vs_T.png}
-        \captionof{figure}{MC simulation shows the CMRR of the two LNAs vs Temperature from $-50^\circ C$ to $150^\circ C$ at 1 kHz}
+        \captionof{figure}{CMRR of LNA1/LNA2 vs Temperature (\qtyrange{-50}{150}{\celsius}) at \qty{1}{\kHz}}
     \end{figure}
 \end{multicols}
 % \pagebreak
-\subsection*{Power Suppy Rejection Ratio}
+\subsection*{Power Suppy Rejection Ratio (PSRR)}
 
 \begin{multicols}{2}
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{image/plot/PSRR_LNA1.png}
-        \captionof{figure}{MC simulation shows the PSRR of LNA1 (VCC,VEE) vs Frequency from 1Hz to 100MHz at $27^\circ C$}
+        \captionof{figure}{LNA1 PSRR (VCC, VEE) vs Frequency (\qtyrange{1}{100}{\MHz}) at \qty{27}{\celsius}}
     \end{figure}  
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=\linewidth]{image/plot/PSRR_LNA2.png}
-        \captionof{figure}{MC simulation shows the PSRR of LNA2 (VCC,VEE) vs Frequency from 1Hz to 100MHz at $27^\circ C$}
+        \captionof{figure}{LNA2 PSRR (VCC, VEE) vs Frequency (\qtyrange{1}{100}{\MHz}) at \qty{27}{\celsius}}
     \end{figure}
 \end{multicols}
 
