@@ -117,6 +117,8 @@ With the histogram represent distribution of slew rate at $27^{\circ}C$ and $45^
 </table>
 
 
+
+
 ### 5. Power Supply Rejection Ratio 
 
 Here we show the PSRR of VCC and VEE source for LNA1 and LNA2 
@@ -128,6 +130,13 @@ Here we show the PSRR of VCC and VEE source for LNA1 and LNA2
   </tr>
 </table>
 
+
+<table>
+  <tr>
+    <td> <img src="image/plot/PSRR_vs_T_LNA1.png"  alt="1" width = 400px ></td>
+    <td> <img src="image/plot/PSRR_vs_T_LNA2.png" alt="2" width = 400px ></td>
+  </tr>
+</table>
 
 
 ## Packaging 
